@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "value": "nextcloudstoragetest"
+    },
+    "adminUsername": {
+      "value": "AWilson12"
+    },
+    "adminPassword": {
+      "value": null
+    },
+    "vmNamePrefix": {
+      "value": "FrontEnd"
+    },
+    "vmBackendName": {
+      "value": null
+    },
+    "dnsNameforLBIP":{
+      "value": null
+    },  
+    "imagePublisher": {
+      "value": "Canonical"
+    },
+    "imageOffer": {
+      "value": "UbuntuServer"
+    },
+    "imageSKU": {
+      "value": "18.04-LTS"
+    },
+    "lbName": {
+      "value": "myLB"
+    },
+    "nicNamePrefix": {
+      "value": "nic"
+    },
+    "backENDNIC": {
+      "value": "backEndNIC"
+    },
+    "publicIPAddressName": {
+      "value": "myPublicIP-3"
+    },
+    "vnetName": {
+      "value": "myVNET-3"
+    },
+    "vmSize": {
+      "value": "Standard_A0"
+    },
+    "location": {
+      "value": "eastus"
+    }
+  }
+}

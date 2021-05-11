@@ -1,0 +1,47 @@
+sudo apt update
+sudo apt install -y apache2 mariadb-client php libapache2-mod-php php-gd php-json php-mysql php-curl php-mbstring php-intl php-imagick php-xml php-zip vim
+	# Start and enable mariadb and apache2
+sudo systemctl start apache2
+sudo systemctl enable apache2
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+	#Download and install Nextcloud
+cd /var/www
+sudo wget https://download.nextcloud.com/server/releases/latest-18.tar.bz2
+	# Extract Nextcloud
+sudo tar -xvf latest-18.tar.bz2
+	# Change group
+sudo chown -R www-data:www-data nextcloud/
+	# Go to this config file
+sudo vim /etc/apache2/sites-available/nextcloud.conf
+	# Paste this code below into the config file
+Alias /nextcloud "/var/www/nextcloud/"
+<Directory /var/www/nextcloud/>
+	Options +FollowSymlinks
+	AllowOverride All
+	<IfModule mod_dav.c>
+		Dav off
+	</IfModule>
+	SetEnv HOME /var/www/nextcloud
+	SetEnv HTTP_HOME /var/www/nextcloud
+</Directory>
+	
+	#Exit and save file
+
+sudo a2ensite nextcloud.conf
+sudo systemctl reload apache2
+sudo systemctl restart apache2
+	#You must now access nextcloud in your browser to get the config.php file setup.  Go to "publicIPaddress/nextcloud". Setup a admin account and connect the data base with database username and password you created and connect to the db by entering "privateIPaddress:3306". Uncheck install recommended apps.
+	#Add your domain to the trusted domains in config.php file array.
+sudo vim /var/www/nextcloud/config/config.php
+	#Run Certbot to enable HTTPS. Enter email address and domain name
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot	
+sudo certbot --apache
+	#Renews certs when required.
+sudo certbot renew --dry-run
+
+
+
+
