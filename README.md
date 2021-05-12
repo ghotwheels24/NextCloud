@@ -18,6 +18,7 @@ Azure deployment of a public load balancer with two Linux VMs running Nextcloud 
 2. Setup the database backend first using the BackendDB text file. (Run each command one at a time and follow comments as some of them require you to modify files and change information from the commands.)
 3. Setup both front ends using FrontEnds text file. (Run each command one at a time and follow comments as some of them require you to modify files and change information from the commands.) 
 ## Data Flow and Visual Diagaram
-![NextCloud Framework](https://user-images.githubusercontent.com/35178560/117868350-848ada00-b267-11eb-8d81-eefc7f97f270.png)
+![NextCloud Framework (1)](https://user-images.githubusercontent.com/35178560/117900785-f8dd7180-b297-11eb-8dfc-72e6cd47ed23.png)
+
 
 
